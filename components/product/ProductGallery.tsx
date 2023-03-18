@@ -5,6 +5,8 @@ import Text from "$store/components/ui/Text.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import DropDownFilter from "../ui/DropDownFilter.tsx";
+
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
@@ -20,7 +22,11 @@ function NotFound() {
 
 function Gallery({ page }: { page: ProductListingPage }) {
   return (
-    <Container class="px-4 sm:py-10">
+   
+    
+    <Container class="px-4 sm:py-10 flex">
+      <DropDownFilter  filterTitle="OLA MUNDO"></DropDownFilter>
+    <div>
       <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-10 items-center">
         {page.products?.map((product, index) => (
           <div class="w-full list-none">
@@ -28,7 +34,6 @@ function Gallery({ page }: { page: ProductListingPage }) {
           </div>
         ))}
       </div>
-
       <div class="flex flex-row items-center justify-center gap-2 my-4">
         <a rel="prev" href={page.pageInfo.previousPage ?? "#"}>
           <Button disabled={!page.pageInfo.previousPage} variant="icon">
@@ -44,7 +49,10 @@ function Gallery({ page }: { page: ProductListingPage }) {
           </Button>
         </a>
       </div>
+      </div>
     </Container>
+   
+  
   );
 }
 

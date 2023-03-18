@@ -116,6 +116,7 @@ const options: Omit<Options, "selfURL"> = {
     fontFamily: {
       sans: ["Albert Sans", "sans-serif"],
       serif: ["inherit", "serif"],
+      roboto:["Roboto",'sans-serif']
     },
     screens: {
       sm: "640px",
@@ -123,7 +124,7 @@ const options: Omit<Options, "selfURL"> = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1536px",
-    },
+    }
   },
   preflight: (preflight) => ({
     ...preflight,
@@ -180,6 +181,17 @@ const options: Omit<Options, "selfURL"> = {
         display: "none",
       },
     },
+   "before-icon":{
+      "&::after":{
+        "content": "''",
+        "width": "25px",
+        "height":"25px",
+       "background-image":"url('/assets/arrow-icon.svg')",
+       "background-repeat":"no-repeat",
+       "background-size":"18px",
+       "display":"flex"
+      }
+    }
   },
 };
 
