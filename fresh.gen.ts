@@ -16,25 +16,27 @@ import * as $$2 from "./islands/HeaderModals.tsx";
 import * as $$3 from "./islands/HeaderSearchMenu.tsx";
 import * as $$4 from "./islands/SearchControls.tsx";
 import * as $$5 from "./islands/SliderJS.tsx";
-import * as $$$0 from "./sections/BannerGrid.tsx";
-import * as $$$1 from "./sections/Carousel.tsx";
-import * as $$$2 from "./sections/CookieConsent.tsx";
-import * as $$$3 from "./sections/DesignSystem.story.tsx";
-import * as $$$4 from "./sections/Features.tsx";
-import * as $$$5 from "./sections/Footer.tsx";
-import * as $$$6 from "./sections/Header.tsx";
-import * as $$$7 from "./sections/Highlights.tsx";
-import * as $$$8 from "./sections/ProductDetails.tsx";
-import * as $$$9 from "./sections/ProductGallery.tsx";
-import * as $$$10 from "./sections/ProductShelf.tsx";
-import * as $$$11 from "./sections/SearchControls.tsx";
-import * as $$$12 from "./sections/WhatsApp.tsx";
-import * as $$$13 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$14 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$15 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$16 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$17 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$18 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$0 from "./sections/BannerCarousel.tsx";
+import * as $$$1 from "./sections/BannerGrid.tsx";
+import * as $$$2 from "./sections/Brands.tsx";
+import * as $$$3 from "./sections/CookieConsent.tsx";
+import * as $$$4 from "./sections/DesignSystem.story.tsx";
+import * as $$$5 from "./sections/Features.tsx";
+import * as $$$6 from "./sections/Footer.tsx";
+import * as $$$7 from "./sections/Header.tsx";
+import * as $$$8 from "./sections/Highlights.tsx";
+import * as $$$9 from "./sections/ListImages.tsx";
+import * as $$$10 from "./sections/ProductDetails.tsx";
+import * as $$$11 from "./sections/ProductGallery.tsx";
+import * as $$$12 from "./sections/ProductShelf.tsx";
+import * as $$$13 from "./sections/SearchControls.tsx";
+import * as $$$14 from "./sections/WhatsApp.tsx";
+import * as $$$15 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$16 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$17 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$18 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$19 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$20 from "deco-sites/std/sections/configVTEX.global.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -71,25 +73,27 @@ const manifest: DecoManifest = {
     "./islands/SliderJS.tsx": $$5,
   },
   sections: {
-    "./sections/BannerGrid.tsx": $$$0,
-    "./sections/Carousel.tsx": $$$1,
-    "./sections/CookieConsent.tsx": $$$2,
-    "./sections/DesignSystem.story.tsx": $$$3,
-    "./sections/Features.tsx": $$$4,
-    "./sections/Footer.tsx": $$$5,
-    "./sections/Header.tsx": $$$6,
-    "./sections/Highlights.tsx": $$$7,
-    "./sections/ProductDetails.tsx": $$$8,
-    "./sections/ProductGallery.tsx": $$$9,
-    "./sections/ProductShelf.tsx": $$$10,
-    "./sections/SearchControls.tsx": $$$11,
-    "./sections/WhatsApp.tsx": $$$12,
-    "deco-sites/std/sections/SEO.tsx": $$$13,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$14,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$15,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$16,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$17,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$18,
+    "./sections/BannerCarousel.tsx": $$$0,
+    "./sections/BannerGrid.tsx": $$$1,
+    "./sections/Brands.tsx": $$$2,
+    "./sections/CookieConsent.tsx": $$$3,
+    "./sections/DesignSystem.story.tsx": $$$4,
+    "./sections/Features.tsx": $$$5,
+    "./sections/Footer.tsx": $$$6,
+    "./sections/Header.tsx": $$$7,
+    "./sections/Highlights.tsx": $$$8,
+    "./sections/ListImages.tsx": $$$9,
+    "./sections/ProductDetails.tsx": $$$10,
+    "./sections/ProductGallery.tsx": $$$11,
+    "./sections/ProductShelf.tsx": $$$12,
+    "./sections/SearchControls.tsx": $$$13,
+    "./sections/WhatsApp.tsx": $$$14,
+    "deco-sites/std/sections/SEO.tsx": $$$15,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$16,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$17,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$18,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$19,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$20,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -112,6 +116,100 @@ const manifest: DecoManifest = {
     "deco-sites/std/functions/vtexSuggestions.ts": $$$$17,
   },
   schemas: {
+    "./sections/BannerCarousel.tsx": {
+      "inputSchema": {
+        "title": " Banner Carousel",
+        "type": "object",
+        "properties": {
+          "images": {
+            "type": "array",
+            "items": {
+              "title": "Banner",
+              "type": "object",
+              "properties": {
+                "desktop": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Desktop",
+                  "description": "desktop otimized image",
+                },
+                "mobile": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Mobile",
+                  "description": "mobile otimized image",
+                },
+                "alt": {
+                  "type": "string",
+                  "title": "Alt",
+                  "description": "Image's alt text",
+                },
+                "action": {
+                  "title": "Action",
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": [
+                        "string",
+                        "null",
+                      ],
+                      "title": "Href",
+                    },
+                    "title": {
+                      "type": [
+                        "string",
+                        "null",
+                      ],
+                      "title": "Title",
+                    },
+                    "subTitle": {
+                      "type": [
+                        "string",
+                        "null",
+                      ],
+                      "title": "Sub Title",
+                    },
+                    "label": {
+                      "type": [
+                        "string",
+                        "null",
+                      ],
+                      "title": "Label",
+                    },
+                  },
+                  "required": [],
+                },
+              },
+              "required": [
+                "desktop",
+                "mobile",
+                "alt",
+              ],
+            },
+            "title": "Images",
+          },
+          "preload": {
+            "type": [
+              "boolean",
+              "null",
+            ],
+            "title": "Preload",
+            "description":
+              "Check this option when this banner is the biggest image on the screen for image optimizations",
+          },
+          "interval": {
+            "type": [
+              "number",
+              "null",
+            ],
+            "title": "Autoplay interval",
+            "description": "time (in seconds) to start the carousel autoplay",
+          },
+        },
+        "required": [],
+      },
+      "outputSchema": null,
+    },
     "./sections/BannerGrid.tsx": {
       "inputSchema": {
         "title": " Banner Grid",
@@ -212,90 +310,61 @@ const manifest: DecoManifest = {
       },
       "outputSchema": null,
     },
-    "./sections/Carousel.tsx": {
+    "./sections/Brands.tsx": {
       "inputSchema": {
-        "title": " Carousel",
+        "title": " Brands",
         "type": "object",
         "properties": {
-          "images": {
+          "differencias": {
             "type": "array",
             "items": {
-              "title": "Banner",
+              "title": "BrandItemProps",
               "type": "object",
               "properties": {
-                "desktop": {
+                "image": {
                   "format": "image-uri",
                   "type": "string",
-                  "title": "Desktop",
-                  "description": "desktop otimized image",
+                  "title": "Image",
+                  "description": " otimized image",
                 },
-                "mobile": {
-                  "format": "image-uri",
-                  "type": "string",
-                  "title": "Mobile",
-                  "description": "mobile otimized image",
-                },
-                "alt": {
-                  "type": "string",
-                  "title": "Alt",
-                  "description": "Image's alt text",
-                },
-                "action": {
-                  "title": "Action",
-                  "type": "object",
-                  "properties": {
-                    "href": {
-                      "type": "string",
-                      "title": "Href",
-                    },
-                    "title": {
-                      "type": "string",
-                      "title": "Title",
-                    },
-                    "subTitle": {
-                      "type": "string",
-                      "title": "Sub Title",
-                    },
-                    "label": {
-                      "type": "string",
-                      "title": "Label",
-                    },
-                  },
-                  "required": [
-                    "href",
-                    "title",
-                    "subTitle",
-                    "label",
+                "text": {
+                  "type": [
+                    "string",
+                    "null",
                   ],
+                  "title": "Text",
+                  "description": " text image",
+                },
+                "href": {
+                  "type": "string",
+                  "title": "Href",
+                  "description": " link Image",
                 },
               },
               "required": [
-                "desktop",
-                "mobile",
-                "alt",
+                "href",
               ],
             },
-            "title": "Images",
+            "title": "Differencias",
           },
-          "preload": {
-            "type": [
-              "boolean",
-              "null",
-            ],
-            "title": "Preload",
-            "description":
-              "Check this option when this banner is the biggest image on the screen for image optimizations",
-          },
-          "interval": {
+          "slidePerView": {
             "type": [
               "number",
               "null",
             ],
-            "title": "Autoplay interval",
-            "description": "time (in seconds) to start the carousel autoplay",
+            "title": "Slide Per View",
+          },
+          "forceLoop": {
+            "type": [
+              "boolean",
+              "null",
+            ],
+            "title": "Force Loop",
           },
         },
-        "required": [],
+        "required": [
+          "differencias",
+        ],
       },
       "outputSchema": null,
     },
@@ -890,6 +959,56 @@ const manifest: DecoManifest = {
         },
         "required": [
           "title",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/ListImages.tsx": {
+      "inputSchema": {
+        "title": " List Images",
+        "type": "object",
+        "properties": {
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "image": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Image",
+                },
+                "alt": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Alt",
+                },
+              },
+              "required": [
+                "image",
+              ],
+            },
+            "title": "Images",
+          },
+          "gap": {
+            "type": [
+              "number",
+              "null",
+            ],
+            "title": "Gap",
+          },
+          "maxHeight": {
+            "type": [
+              "number",
+              "null",
+            ],
+            "title": "Max Height",
+          },
+        },
+        "required": [
+          "images",
         ],
       },
       "outputSchema": null,

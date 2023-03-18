@@ -36,7 +36,7 @@ const options: Omit<Options, "selfURL"> = {
       colors: {
         "white": "#FFFFFF",
         "black": "#000000",
-        "red-400":"#D51313",
+        "red-400": "#D51313",
         "header": "#FFFFFF",
         "red-700": "#AB292E",
         "badge": "#8C3D3D", // shopping cart tem isso tambem
@@ -45,6 +45,7 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "cyan-400": "#EFEFEF",
       },
       textColor: {
         "default": "#161616",

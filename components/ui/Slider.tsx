@@ -3,22 +3,25 @@ import type { JSX } from "preact";
 
 type Props = JSX.IntrinsicElements["ul"] & {
   snap?: string;
+  slidePerView?: number;
 };
 
 function Slider({
   children,
-  snap = "snap-center",
-  class: _class = "gap-6 scrollbar-none",
+  snap = "snap-start",
+  class: _class = "scrollbar-none",
+  slidePerView = 1,
   ...props
 }: Props) {
   return (
     <ul
       data-slider
-      class={`grid grid-flow-col items-center overflow-x-auto overscroll-x-contain snap-x snap-mandatory ${_class}`}
+      class={`flex items-center overflow-x-auto snap-x snap-mandatory overflow-x-hidden ${_class}`}
       {...props}
     >
       {Children.map(children, (child, index) => (
         <li
+          className={`min-w-[calc(100%/${slidePerView})]`}
           data-slider-item={index}
           class={snap}
         >
