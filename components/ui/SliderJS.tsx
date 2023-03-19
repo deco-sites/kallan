@@ -23,21 +23,15 @@ const intersectionX = (element: DOMRect, container: DOMRect): number => {
 
   if (element.right < container.left - delta) {
     return 0.0;
-  }
-
-  if (element.left > container.right + delta) {
+  } else if (element.left > container.right + delta) {
     return 0.0;
-  }
-
-  if (element.left < container.left - delta) {
+  } else if (element.left < container.left - delta) {
     return element.right - container.left + delta;
-  }
-
-  if (element.right > container.right + delta) {
+  } else if (element.right > container.right + delta) {
     return container.right - element.left + delta;
+  } else {
+    return element.width;
   }
-
-  return element.width;
 };
 
 // as any are ok in typeguard functions
@@ -47,7 +41,9 @@ const isHTMLElement = (x: Element): x is HTMLElement =>
 
 const setup = ({ rootId, behavior, interval }: Props) => {
   const root = document.getElementById(rootId);
-  const slider = root?.querySelector(`[${ATTRIBUTES["data-slider"]}]`);
+  const slider = root?.querySelector<HTMLElement>(
+    `[${ATTRIBUTES["data-slider"]}]`,
+  );
   const items = root?.querySelectorAll(`[${ATTRIBUTES["data-slider-item"]}]`);
   const prev = root?.querySelector(`[${ATTRIBUTES['data-slide="prev"']}]`);
   const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
@@ -70,10 +66,7 @@ const setup = ({ rootId, behavior, interval }: Props) => {
       const item = items.item(index);
       const rect = item.getBoundingClientRect();
 
-      const ratio = intersectionX(
-        rect,
-        sliderRect,
-      ) / rect.width;
+      const ratio = intersectionX(rect, sliderRect) / rect.width;
 
       if (ratio > THRESHOLD) {
         indices.push(index);
@@ -90,7 +83,6 @@ const setup = ({ rootId, behavior, interval }: Props) => {
       console.warn(
         `Element at index ${index} is not an html element. Skipping carousel`,
       );
-
       return;
     }
 
@@ -103,7 +95,6 @@ const setup = ({ rootId, behavior, interval }: Props) => {
 
   const onClickPrev = () => {
     const indices = getElementsInsideContainer();
-    // Wow! items per page is how many elements are being displayed inside the container!!
     const itemsPerPage = indices.length;
 
     const isShowingFirst = indices[0] === 0;
@@ -116,7 +107,6 @@ const setup = ({ rootId, behavior, interval }: Props) => {
 
   const onClickNext = () => {
     const indices = getElementsInsideContainer();
-    // Wow! items per page is how many elements are being displayed inside the container!!
     const itemsPerPage = indices.length;
 
     const isShowingLast = indices[indices.length - 1] === items.length - 1;
@@ -125,8 +115,33 @@ const setup = ({ rootId, behavior, interval }: Props) => {
     goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
   };
 
+  let touchStartX: number;
+
+  const onDragStart = (event: TouchEvent) => {
+    touchStartX = event.touches[0].clientX;
+
+    const onDragMove = (event: TouchEvent) => {
+      const touchCurrentX = event.touches[0].clientX;
+      const touchDeltaX = touchCurrentX - touchStartX;
+
+      if (touchDeltaX > 0) {
+        onClickPrev();
+      } else if (touchDeltaX < 0) {
+        onClickNext();
+      }
+    };
+
+    const onDragEnd = () => {
+      slider.removeEventListener("touchmove", onDragMove);
+      slider.removeEventListener("touchend", onDragEnd);
+    };
+
+    slider.addEventListener("touchmove", onDragMove);
+    slider.addEventListener("touchend", onDragEnd);
+  };
+
   const observer = new IntersectionObserver(
-    (items) =>
+    (items) => {
       items.forEach((item) => {
         const index =
           Number(item.target.getAttribute(ATTRIBUTES["data-slider-item"])) || 0;
@@ -137,7 +152,8 @@ const setup = ({ rootId, behavior, interval }: Props) => {
         } else {
           dot?.removeAttribute("disabled");
         }
-      }),
+      });
+    },
     { threshold: THRESHOLD, root: slider },
   );
 
@@ -149,6 +165,8 @@ const setup = ({ rootId, behavior, interval }: Props) => {
 
   prev?.addEventListener("click", onClickPrev);
   next?.addEventListener("click", onClickNext);
+
+  slider.addEventListener("touchstart", onDragStart);
 
   const timeout = interval && setInterval(onClickNext, interval);
 
@@ -164,6 +182,7 @@ const setup = ({ rootId, behavior, interval }: Props) => {
     observer.disconnect();
 
     clearInterval(timeout);
+    slider.removeEventListener("touchstart", onDragStart);
   };
 };
 

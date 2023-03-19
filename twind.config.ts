@@ -45,7 +45,11 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
-        "cyan-400": "#EFEFEF",
+        "gray-400": "#EFEFEF",
+        "gray-200": "rgba(232, 232, 232, 0.5)",
+        "gray-100": "#A8A8A8",
+        "red-800": "#BA1327",
+        "red-900": "#5D0A14",
       },
       textColor: {
         "default": "#161616",
@@ -117,23 +121,34 @@ const options: Omit<Options, "selfURL"> = {
     fontFamily: {
       sans: ["Albert Sans", "sans-serif"],
       serif: ["inherit", "serif"],
+      roboto: ["Roboto", "sans-serif"],
     },
     screens: {
       sm: "640px",
       md: "768px",
       lg: "1024px",
       xl: "1280px",
+      "lgMax": { "max": "1024px" },
       "2xl": "1536px",
     },
   },
   preflight: (preflight) => ({
     ...preflight,
 
+    html: {
+      overflowX: "hidden",
+    },
+    "*": {
+      fontFamily: "Roboto,sans-serif",
+    },
+
     // Stick footer to the bottom of the page
     body: {
       display: "flex",
       flexDirection: "column",
       minHeight: "100vh",
+      overflowX: "hidden",
+      background: "#FFF",
     },
     'section[data-manifest-key="./sections/Footer.tsx"]': {
       marginTop: "auto",

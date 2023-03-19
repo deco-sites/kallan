@@ -1,7 +1,7 @@
 import Text from "$store/components/ui/Text.tsx";
 import SliderControllerJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
-import { useId } from "preact/hooks";
+import { generateUniqueId } from "$store/sdk/generateId.ts";
 
 export interface Props {
   alerts: string[];
@@ -13,7 +13,7 @@ export interface Props {
 }
 
 function Alert({ alerts = [], interval = 5 }: Props) {
-  const id = useId();
+  const id = generateUniqueId();
 
   return (
     <div id={id}>

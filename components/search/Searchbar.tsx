@@ -73,10 +73,11 @@ export type Props = EditableProps & {
   configVTEX?: ClientConfigVTEX;
 
   variant?: "desktop" | "mobile";
+  className?: string;
 };
 
 function Searchbar({
-  placeholder = "What are you looking for?",
+  placeholder = "Digite Aqui",
   action = "/s",
   name = "q",
   query,
@@ -84,6 +85,7 @@ function Searchbar({
   suggestions: _suggestions,
   configVTEX,
   variant = "mobile",
+  className,
 }: Props) {
   const searches = _suggestions?.searches;
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -107,21 +109,22 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col p-4 md:(py-6 px-20)">
+    <div class={`flex flex-col p-0 max-w-[430px] w-full ${className}`}>
       <div class="flex gap-4">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-default"
+          class="flex-grow flex gap-3 border border-gray-100 relative rounded overflow-hidden"
         >
           <Button
+            class="absolute right-0 hover:bg-transparent h-full flex items-center justify-center"
             variant="icon"
             aria-label="Search"
             htmlFor="searchbar"
             tabIndex={-1}
           >
             <Icon
-              class="text-subdued"
+              class="text-black"
               id="MagnifyingGlass"
               width={20}
               height={20}
@@ -131,7 +134,7 @@ function Searchbar({
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden"
+            class="flex-grow  outline-none placeholder-shown:sibling:hidden lg:text-center h-[34px] lgMax:pl-[15px] lgMax:text-black"
             name={name}
             defaultValue={query}
             onInput={(e) => {
@@ -144,21 +147,6 @@ function Searchbar({
             aria-controls="search-suggestion"
             autocomplete="off"
           />
-          <button
-            type="button"
-            aria-label="Clean search"
-            class="focus:outline-none"
-            tabIndex={-1}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (searchInputRef.current === null) return;
-
-              searchInputRef.current.value = "";
-              setSearch("");
-            }}
-          >
-            <Text variant="caption" tone="default">limpar</Text>
-          </button>
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>

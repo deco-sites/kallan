@@ -1,7 +1,7 @@
 import Text from "$store/components/ui/Text.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Container from "$store/components/ui/Container.tsx";
-import { useId } from "preact/hooks";
+import { generateUniqueId } from "$store/sdk/generateId.ts";
 
 const script = (id: string) => `
 const callback = () => {
@@ -28,7 +28,7 @@ window.addEventListener('scroll', callback, { once: true });
 `;
 
 function CookieConsent() {
-  const id = useId();
+  const id = generateUniqueId();
 
   return (
     <>

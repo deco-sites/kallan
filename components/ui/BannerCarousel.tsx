@@ -6,6 +6,7 @@ import SliderControllerJS from "$store/islands/SliderJS.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import { animation, keyframes, tw } from "twind/css";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { generateUniqueId } from "$store/sdk/generateId.ts";
 
 export interface Banner {
   /** @description desktop otimized image */
@@ -46,6 +47,8 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
     desktop,
     action,
   } = image;
+
+
 
   return (
     <div class="relative h-auto w-full overflow-y-hidden">
@@ -173,7 +176,7 @@ function Controls() {
 }
 
 function BannerCarousel({ images, preload, interval }: Props) {
-  const id = "bannerCarousel";
+  const id = generateUniqueId();
 
   return (
     <div

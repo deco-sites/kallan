@@ -27,8 +27,10 @@ function Cart() {
   // Empty State
   if (isCartEmpty) {
     return (
-      <div class="flex flex-col justify-center items-center h-full gap-6">
-        <Text variant="heading-2">Sua sacola está vazia</Text>
+      <div class="flex flex-col justify-center items-center h-full gap-6 bg-white">
+        <Text class="" variant="heading-2">
+          Sua sacola está vazia
+        </Text>
         <Button
           variant="secondary"
           onClick={() => {

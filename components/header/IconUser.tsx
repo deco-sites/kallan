@@ -1,0 +1,39 @@
+function IconUser() {
+  return (
+    <svg
+      width="25"
+      height="25"
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_1_571)">
+        <path
+          d="M23.0801 23.5906V21.1657C23.0224 19.821 22.4339 18.5541 21.4436 17.6427C20.4533 16.7313 19.142 16.2497 17.7972 16.3036H7.23283C5.88885 16.25 4.57841 16.7312 3.58848 17.6418C2.59856 18.5525 2.00983 19.8182 1.95123 21.162V23.587"
+          stroke="#D51313"
+          stroke-width="1.81873"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M12.3884 11.8465C15.2705 11.8465 17.6069 9.51004 17.6069 6.62791C17.6069 3.74579 15.2705 1.40936 12.3884 1.40936C9.50622 1.40936 7.1698 3.74579 7.1698 6.62791C7.1698 9.51004 9.50622 11.8465 12.3884 11.8465Z"
+          stroke="#D51313"
+          stroke-width="1.81873"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_1_571">
+          <rect
+            width="24"
+            height="24"
+            fill="white"
+            transform="translate(0.515625 0.5)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}
+export default IconUser;

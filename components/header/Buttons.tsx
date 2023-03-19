@@ -35,14 +35,14 @@ function MenuButton() {
   );
 }
 
-function CartButton() {
+export function CartButton() {
   const { displayCart } = useUI();
   const { loading, cart } = useCart();
   const totalItems = cart.value?.items.length || null;
 
   return (
-    <Button
-      variant="icon"
+    <button
+      className="flex items-center h-full rounded-none! bg-transparent! outline-none! relative h-full border-none!"
       class="relative"
       aria-label="open cart"
       disabled={loading.value}
@@ -50,13 +50,14 @@ function CartButton() {
         displayCart.value = true;
       }}
     >
-      <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+      <span class="text-[14px] text-black mr-2 lgMax:hidden">Sacola</span>
+      <Icon id="ShoppingCart" width={22} height={26} strokeWidth={2} />
       {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
+        <span class="absolute text-[9px] right-[-10px] top-0 rounded-full bg-red-400 text-white w-4 h-4 flex items-center justify-center">
           {totalItems}
         </span>
       )}
-    </Button>
+    </button>
   );
 }
 

@@ -2,7 +2,8 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderControllerJS from "$store/islands/SliderJS.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import { animation, keyframes, tw } from "twind/css";
+import { generateUniqueId } from "$store/sdk/generateId.ts";
+
 
 export interface BrandItemProps {
   /** @description  otimized image */
@@ -15,7 +16,6 @@ export interface BrandItemProps {
 
 export interface BrandsProps {
   differencias: BrandItemProps[];
-  slidePerView?: number;
   forceLoop?: boolean;
 }
 
@@ -64,13 +64,15 @@ function Controls() {
   );
 }
 
-function Brands({ differencias, slidePerView = 1, forceLoop }: BrandsProps) {
-  const id = "diffencial";
+function Brands({ differencias, forceLoop }: BrandsProps) {
+  const id = generateUniqueId();
 
   const list = forceLoop ? differencias.concat(differencias) : differencias;
+  const isMobile = window.innerWidth <= 1024;
+  const slidePerView = isMobile ? 3.5 : 9;
 
   return (
-    <div id={id} class="bg-cyan-400 h-36 w-full pt-5 mb-[17px]">
+    <div id={id} class="bg-gray-400 h-36 w-full pt-5 mb-[17px]">
       <div class="max-w-[1200px] w-full mx-auto relative">
         <div class="max-w-[1070px] w-full mx-auto">
           <Slider
@@ -81,7 +83,7 @@ function Brands({ differencias, slidePerView = 1, forceLoop }: BrandsProps) {
           </Slider>
         </div>
 
-        {list.length > slidePerView && <Controls />}
+        {list.length > slidePerView && !isMobile && <Controls />}
 
         <SliderControllerJS rootId={id} />
       </div>

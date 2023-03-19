@@ -11,11 +11,14 @@ import * as $2 from "./routes/_middleware.ts";
 import * as $3 from "./routes/api/[...catchall].tsx";
 import * as $4 from "./routes/index.tsx";
 import * as $$0 from "./islands/AddToCartButton.tsx";
-import * as $$1 from "./islands/HeaderButton.tsx";
-import * as $$2 from "./islands/HeaderModals.tsx";
-import * as $$3 from "./islands/HeaderSearchMenu.tsx";
-import * as $$4 from "./islands/SearchControls.tsx";
-import * as $$5 from "./islands/SliderJS.tsx";
+import * as $$1 from "./islands/Brands.tsx";
+import * as $$2 from "./islands/HeaderButton.tsx";
+import * as $$3 from "./islands/HeaderModals.tsx";
+import * as $$4 from "./islands/HeaderSearchMenu.tsx";
+import * as $$5 from "./islands/ListImages.tsx";
+import * as $$6 from "./islands/SearchControls.tsx";
+import * as $$7 from "./islands/SliderJS.tsx";
+import * as $$8 from "./islands/TopBar.tsx";
 import * as $$$0 from "./sections/BannerCarousel.tsx";
 import * as $$$1 from "./sections/BannerGrid.tsx";
 import * as $$$2 from "./sections/Brands.tsx";
@@ -66,11 +69,14 @@ const manifest: DecoManifest = {
   },
   islands: {
     "./islands/AddToCartButton.tsx": $$0,
-    "./islands/HeaderButton.tsx": $$1,
-    "./islands/HeaderModals.tsx": $$2,
-    "./islands/HeaderSearchMenu.tsx": $$3,
-    "./islands/SearchControls.tsx": $$4,
-    "./islands/SliderJS.tsx": $$5,
+    "./islands/Brands.tsx": $$1,
+    "./islands/HeaderButton.tsx": $$2,
+    "./islands/HeaderModals.tsx": $$3,
+    "./islands/HeaderSearchMenu.tsx": $$4,
+    "./islands/ListImages.tsx": $$5,
+    "./islands/SearchControls.tsx": $$6,
+    "./islands/SliderJS.tsx": $$7,
+    "./islands/TopBar.tsx": $$8,
   },
   sections: {
     "./sections/BannerCarousel.tsx": $$$0,
@@ -346,13 +352,6 @@ const manifest: DecoManifest = {
               ],
             },
             "title": "Differencias",
-          },
-          "slidePerView": {
-            "type": [
-              "number",
-              "null",
-            ],
-            "title": "Slide Per View",
           },
           "forceLoop": {
             "type": [
@@ -907,9 +906,43 @@ const manifest: DecoManifest = {
             "title": "Config V T E X",
             "description": "vtex config used for search autocompletion;",
           },
+          "topBarItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "image": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Image",
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                },
+                "description": {
+                  "type": "string",
+                  "title": "Description",
+                },
+              },
+              "required": [
+                "image",
+                "text",
+                "description",
+              ],
+            },
+            "title": "Top Bar Items",
+            "description": "vtex config used for search autocompletion;",
+          },
+          "logo": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Logo",
+          },
         },
         "required": [
           "alerts",
+          "logo",
         ],
       },
       "outputSchema": null,
@@ -1005,6 +1038,13 @@ const manifest: DecoManifest = {
               "null",
             ],
             "title": "Max Height",
+          },
+          "slider": {
+            "type": [
+              "boolean",
+              "null",
+            ],
+            "title": "Slider",
           },
         },
         "required": [

@@ -8,6 +8,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import { useId } from "preact/hooks";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+import { generateUniqueId } from "$store/sdk/generateId.ts";
 
 export interface Props {
   title: string;
@@ -20,7 +21,7 @@ function ProductShelf({
   products,
   itemsPerPage,
 }: Props) {
-  const id = useId();
+  const id = generateUniqueId();
 
   if (!products || products.length === 0) {
     return null;
@@ -29,38 +30,51 @@ function ProductShelf({
   return (
     <Container
       id={id}
-      class="flex flex-col items-center mb-8"
+      class="flex flex-col items-center mb-10 "
     >
-      <h2 class="text-center row-start-1 col-span-full font-bold text-black mb-4 text-2xl ">
+      <h2 class="text-center row-start-1 col-span-full font-bold text-black mb-4 text-[28px]">
         {title}
       </h2>
 
-      <Slider
-        slidePerView={itemsPerPage}
-        class="col-span-full row-start-2 row-end-5 "
-        snap="snap-start sm:snap-start block "
-      >
-        {products?.map((product) => <ProductCard product={product} />)}
-      </Slider>
+      <div class="w-full relative ">
+        <Slider
+          slidePerView={itemsPerPage}
+          class="col-span-full row-start-2 row-end-5 overflow-hidden"
+          snap="snap-start sm:snap-start block "
+        >
+          {products?.map((product) => <ProductCard product={product} />)}
+        </Slider>
 
-      <>
-        <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
-          <div class="absolute right-1/2 bg-interactive-inverse rounded-full border-default border">
-            <Button variant="icon" data-slide="prev" aria-label="Previous item">
-              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-            </Button>
-          </div>
-        </div>
-        <div class="hidden relative sm:block z-10 col-start-3 row-start-3">
-          <div class="absolute left-1/2 bg-interactive-inverse rounded-full border-default border">
-            <Button variant="icon" data-slide="next" aria-label="Next item">
-              <Icon size={20} id="ChevronRight" strokeWidth={3} />
-            </Button>
-          </div>
-        </div>
-      </>
+        <div class="absolute inset-0 flex items-center justify-between px-1.5 pointer-events-none h-full w-full">
+          <button
+            class="flex justify-center bg-gray-200  hover:shadow items-center h-8 w-8 focus:outline-none pointer-events-auto transition translate-x-[-34px]  rounded-1/2 "
+            data-slide="prev"
+            aria-label="Previous item"
+          >
+            <Icon
+              class="transition text-black opacity-50"
+              size={16}
+              id="ChevronLeft"
+              strokeWidth={3}
+            />
+          </button>
 
-      <SliderControllerJS rootId={id} />
+          <button
+            class="flex justify-center bg-gray-200 hover:shadow items-center h-8 w-8 focus:outline-none pointer-events-auto transition translate-x-[34px]   rounded-1/2 "
+            data-slide="next"
+            aria-label="Next item"
+          >
+            <Icon
+              class="transition text-black opacity-50"
+              size={16}
+              id="ChevronRight"
+              strokeWidth={3}
+            />
+          </button>
+        </div>
+
+        <SliderControllerJS rootId={id} />
+      </div>
     </Container>
   );
 }

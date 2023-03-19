@@ -109,7 +109,15 @@ function GlobalTags() {
             font-style: normal;
             font-weight: 400;
             font-display:swap;
-            src:url(${asset("/fonts/Roboto-Regular.ttf")})format('ttf');
+            src:url(${asset("/fonts/Roboto-Regular.ttf")}) format('ttf');
+          }
+
+          @font-face{
+            font-family:'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-display:swap;
+            src:url(${asset("/fonts/Roboto-Medium.ttf")}) format('ttf');
           }
           /* Roboto Bold */
           @font-face{
@@ -117,7 +125,7 @@ function GlobalTags() {
             font-style: bold;
             font-weight: 700;
             font-display:swap;
-            src:url(${asset("/fonts/Roboto-Bold.ttf")})format('ttf');
+            src:url(${asset("/fonts/Roboto-Bold.ttf")}) format('ttf');
           }
       `,
         }}

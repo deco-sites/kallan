@@ -11,7 +11,7 @@ const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
 const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
 
 interface Props {
-  menu: MenuProps;
+  menu?: MenuProps;
   searchbar?: SearchbarProps;
 }
 
