@@ -54,6 +54,7 @@ const options: Omit<Options, "selfURL"> = {
       textColor: {
         "default": "#161616",
         "default-inverse": "#FFFFFF",
+        "black": "#000000",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",
         "price": "#8C3D3D",
@@ -68,6 +69,7 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "gray-department": "#e2e8f0",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
@@ -76,6 +78,8 @@ const options: Omit<Options, "selfURL"> = {
         "heading-1": ["56px", "67.2px"],
         "heading-2": ["24px", "28.8px"],
         "heading-3": ["20px", "24px"],
+        "default": ["16px", "24px"],
+        "small-12": ["12px", "24px"],
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
@@ -195,6 +199,24 @@ const options: Omit<Options, "selfURL"> = {
       "&::-webkit-scrollbar": {
         display: "none",
       },
+    },
+    "before-icon": {
+      "&::after": {
+        "content": "''",
+        "width": "25px",
+        "height": "20px",
+        "background-image": "url('/assets/arrow-icon.svg')",
+        "background-repeat": "no-repeat",
+        "background-size": "18px",
+        "display": "flex",
+      },
+    },
+    "card-hover": {
+      "bottom": "-73%",
+      "transition": "bottom 300ms ease",
+    },
+    "card-hover-2": {
+      "bottom": "-27%",
     },
   },
 };

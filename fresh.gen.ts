@@ -751,161 +751,6 @@ const manifest: DecoManifest = {
         "title": " Header",
         "type": "object",
         "properties": {
-          "alerts": {
-            "type": "array",
-            "items": {
-              "type": "string",
-            },
-            "title": "Alerts",
-          },
-          "searchbar": {
-            "title": "Search Bar",
-            "type": "object",
-            "properties": {
-              "placeholder": {
-                "type": [
-                  "string",
-                  "null",
-                ],
-                "title": "Placeholder",
-                "description": "Search bar default placeholder message",
-                "default": "What are you looking for?",
-              },
-              "action": {
-                "type": [
-                  "string",
-                  "null",
-                ],
-                "title": "Page path",
-                "description":
-                  "When user clicks on the search button, navigate it to",
-                "default": "/s",
-              },
-              "name": {
-                "type": [
-                  "string",
-                  "null",
-                ],
-                "title": "Term name",
-                "description":
-                  "Querystring param used when navigating the user",
-                "default": "q",
-              },
-              "query": {
-                "type": [
-                  "string",
-                  "null",
-                ],
-                "title": "Query",
-              },
-            },
-            "required": [],
-          },
-          "navItems": {
-            "type": "array",
-            "items": {
-              "title": "NavItem",
-              "type": "object",
-              "properties": {
-                "label": {
-                  "type": "string",
-                  "title": "Label",
-                },
-                "href": {
-                  "type": "string",
-                  "title": "Href",
-                },
-                "children": {
-                  "title": "Children",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "label": {
-                        "type": "string",
-                        "title": "Label",
-                      },
-                      "href": {
-                        "type": "string",
-                        "title": "Href",
-                      },
-                      "children": {
-                        "title": "Children",
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "label": {
-                              "type": "string",
-                              "title": "Label",
-                            },
-                            "href": {
-                              "type": "string",
-                              "title": "Href",
-                            },
-                          },
-                          "required": [
-                            "label",
-                            "href",
-                          ],
-                        },
-                      },
-                    },
-                    "required": [
-                      "label",
-                      "href",
-                    ],
-                  },
-                },
-                "image": {
-                  "title": "Image",
-                  "type": "object",
-                  "properties": {
-                    "src": {
-                      "format": "image-uri",
-                      "type": "string",
-                      "title": "Src",
-                    },
-                    "alt": {
-                      "type": [
-                        "string",
-                        "null",
-                      ],
-                      "title": "Alt",
-                    },
-                  },
-                  "required": [],
-                },
-              },
-              "required": [
-                "label",
-                "href",
-              ],
-            },
-            "title": "Navigation items",
-            "description":
-              "Navigation items used both on mobile and desktop menus",
-          },
-          "products": {
-            "$id": "1f15a836acd2ecbefef6eaf34ebcff98e39811f3",
-            "format": "live-function",
-            "type": "string",
-            "title": "Product suggestions",
-            "description": "Product suggestions displayed on search",
-          },
-          "suggestions": {
-            "$id": "664f9b3b60b4a75294c340d8218b4ad76821fd58",
-            "format": "live-function",
-            "type": "string",
-            "title": "Enable Top Search terms",
-          },
-          "configVTEX": {
-            "$id": "4a94f4ff0e8e4441f26651aaed22f0df82f38c93",
-            "format": "live-function",
-            "type": "string",
-            "title": "Config V T E X",
-            "description": "vtex config used for search autocompletion;",
-          },
           "topBarItems": {
             "type": "array",
             "items": {
@@ -932,7 +777,6 @@ const manifest: DecoManifest = {
               ],
             },
             "title": "Top Bar Items",
-            "description": "vtex config used for search autocompletion;",
           },
           "logo": {
             "format": "image-uri",
@@ -941,7 +785,6 @@ const manifest: DecoManifest = {
           },
         },
         "required": [
-          "alerts",
           "logo",
         ],
       },
@@ -1409,7 +1252,7 @@ const manifest: DecoManifest = {
         "type": "object",
         "properties": {
           "page": {
-            "$id": "05ecb684cf4ee00e98171fdc45227df637e4804e",
+            "$id": "9ba29fcac079080c6f7cf16f40f91cf15a25d53f",
             "format": "live-function",
             "type": "string",
             "title": "Page",

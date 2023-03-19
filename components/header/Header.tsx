@@ -51,7 +51,6 @@ function Header(
     logo,
   }: Props,
 ) {
-  const searchbar = { ..._searchbar, products, suggestions, configVTEX };
   return (
     <header class={`h-[160px] transition lgMax:h-[177px]`}>
       <div class=" fixed w-full left-0 top-0 z-50 bg-white">
@@ -78,8 +77,7 @@ function Header(
         <Searchbar className="lg:hidden px-2.5! my-2.5" />
       </div>
       <Modals
-        menu={{ items: navItems }}
-        searchbar={searchbar}
+        menu={{ items: [] }}
       />
     </header>
   );
