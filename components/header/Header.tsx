@@ -36,35 +36,6 @@ export interface NavItem {
 }
 
 export interface Props {
-  alerts: string[];
-  /** @title Search Bar */
-  searchbar?: SearchbarProps;
-  /**
-   * @title Navigation items
-   * @description Navigation items used both on mobile and desktop menus
-   */
-  navItems?: NavItem[];
-
-  /**
-   * @title Product suggestions
-   * @description Product suggestions displayed on search
-   */
-  products?: LoaderReturnType<Product[] | null>;
-
-  /**
-   * @title Enable Top Search terms
-   */
-  suggestions?: LoaderReturnType<Suggestion | null>;
-
-  /**
-   * @description vtex config used for search autocompletion;
-   */
-  configVTEX?: LoaderReturnType<ClientConfigVTEX>;
-
-  /**
-   * @description vtex config used for search autocompletion;
-   */
-
   topBarItems?: {
     image: LiveImage;
     text: string;
@@ -76,12 +47,6 @@ export interface Props {
 
 function Header(
   {
-    alerts,
-    searchbar: _searchbar,
-    products,
-    navItems = [],
-    suggestions,
-    configVTEX,
     topBarItems,
     logo,
   }: Props,
