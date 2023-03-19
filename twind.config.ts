@@ -37,6 +37,7 @@ const options: Omit<Options, "selfURL"> = {
         "white": "#FFFFFF",
         "black": "#000000",
         "red-400": "#D51313",
+        "red-500": "#ba1327",
         "header": "#FFFFFF",
         "red-700": "#AB292E",
         "badge": "#8C3D3D", // shopping cart tem isso tambem
@@ -46,6 +47,7 @@ const options: Omit<Options, "selfURL"> = {
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
         "cyan-400": "#EFEFEF",
+        "gray-300": "#b3b3b3",
       },
       textColor: {
         "default": "#161616",
@@ -58,7 +60,7 @@ const options: Omit<Options, "selfURL"> = {
         "critical": "#B44125",
       },
       borderColor: {
-        "default": "#D4DBD7",
+        "default": "#b3b3b3",
         "default-inverse": "#FFFFFF",
         "interactive": "#161616",
         "focus": "#3379EF",
@@ -117,6 +119,7 @@ const options: Omit<Options, "selfURL"> = {
     fontFamily: {
       sans: ["Albert Sans", "sans-serif"],
       serif: ["inherit", "serif"],
+      roboto: ["Roboto", "sans-serif"],
     },
     screens: {
       sm: "640px",

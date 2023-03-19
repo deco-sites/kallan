@@ -39,9 +39,12 @@ function Details({ page }: { page: ProductDetailsPage }) {
     productID,
     offers,
     image: images,
-    name,
     gtin,
+    isVariantOf,
   } = product;
+
+  const { name } = isVariantOf ?? {};
+
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
 
@@ -73,17 +76,24 @@ function Details({ page }: { page: ProductDetailsPage }) {
           />
           {/* Code and name */}
           <div class="mt-4 sm:mt-8">
+            <h1>
+              <Text variant="heading-3">{name}</Text>
+            </h1>
             <div>
               <Text tone="subdued" variant="caption">
                 Cod. {gtin}
               </Text>
             </div>
-            <h1>
-              <Text variant="heading-3">{name}</Text>
-            </h1>
           </div>
           {/* Prices */}
           <div class="mt-4">
+            <Text
+              tone="subdued"
+              variant="caption"
+              class="uppercase text-red-500 font-bold text-[18px]"
+            >
+              {installments}
+            </Text>
             <div class="flex flex-row gap-2 items-center">
               <Text
                 class="line-through"
@@ -96,9 +106,6 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 {formatPrice(price, offers!.priceCurrency!)}
               </Text>
             </div>
-            <Text tone="subdued" variant="caption">
-              {installments}
-            </Text>
           </div>
           {/* Sku Selector */}
           <div class="mt-4 sm:mt-6">
@@ -112,23 +119,19 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 sellerId={seller}
               />
             )}
-            <Button variant="secondary">
-              <Icon id="Heart" width={20} height={20} strokeWidth={2} />{" "}
-              Favoritar
-            </Button>
-          </div>
-          {/* Description card */}
-          <div class="mt-4 sm:mt-6">
-            <Text variant="caption">
-              {description && (
-                <details>
-                  <summary class="cursor-pointer">Descrição</summary>
-                  <div class="ml-2 mt-2">{description}</div>
-                </details>
-              )}
-            </Text>
           </div>
         </div>
+      </div>
+      {/* Description card */}
+      <div class="mt-4 sm:mt-6">
+        <Text variant="caption">
+          {description && (
+            <details>
+              <summary class="cursor-pointer">Descrição</summary>
+              <div class="ml-2 mt-2">{description}</div>
+            </details>
+          )}
+        </Text>
       </div>
     </Container>
   );
