@@ -53,7 +53,7 @@ function Avatar({ variant, content, class: _class = "", ...btnProps }: Props) {
     return (
       <button
         {...btnProps}
-        class={`text-caption font-caption rounded-full border border-default w-8 h-8 flex justify-center items-center hover:bg-interactive hover:border-interactive hover:text-default-inverse disabled:bg-interactive disabled:text-default-inverse disabled:border-interactive ${_class}`}
+        class={`text-caption font-caption font-roboto rounded-[0.25rem] border border-gray-300 w-8 h-8 flex justify-center items-center text-gray-300 hover:bg-red-500 hover:border-red-500 hover:text-default-inverse disabled:bg-red-500 disabled:text-default-inverse disabled:border-red-500 ${_class} w-[62px]`}
       >
         {content.substring(0, 2)}
       </button>

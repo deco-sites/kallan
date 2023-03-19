@@ -42,7 +42,12 @@ function ProductShelf({
           class="col-span-full row-start-2 row-end-5 overflow-hidden"
           snap="snap-start sm:snap-start block "
         >
-          {products?.map((product) => <ProductCard product={product} />)}
+          {products?.map((product) => (
+            <ProductCard
+              className="border border-gray-department rounded-[6px] max-w-[252px] "
+              product={product}
+            />
+          ))}
         </Slider>
 
         <div class="absolute inset-0 flex items-center justify-between px-1.5 pointer-events-none h-full w-full">

@@ -38,9 +38,10 @@ interface Props {
   product: Product;
   /** Preload card image */
   preload?: boolean;
+  className?: string;
 }
 
-function ProductCard({ product, preload }: Props) {
+function ProductCard({ product, preload, className }: Props) {
   const {
     url,
     productID,
@@ -57,50 +58,56 @@ function ProductCard({ product, preload }: Props) {
   return (
     <div
       id={`product-card-${productID}`}
-      class="w-full group overflow-hidden group"
+      class={`w-full group overflow-hidden group ${className}  p-[15px]`}
     >
       <a href={url} aria-label="product link">
-        <div class="relative w-full">
+        <div class="relative w-full max-w-[244px]">
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={200}
-            height={279}
+            width={244}
+            height={244}
             class="rounded w-full"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
             sizes="(max-width: 640px) 50vw, 20vw"
           />
-          {seller && (
-            <div class=" absolute  card-hover group-hover:card-hover-2  flex-col gap-2 w-full bg-white">
-              <Sizes {...product} />
-              <Button as="a" href={product.url}>Visualizar Produto</Button>
-            </div>
-          )}
         </div>
 
         <div class="flex flex-col gap-1 py-2">
-          <Text
-            class="overflow-hidden overflow-ellipsis whitespace-nowrap text-small-12 "
+          <h3
+            class="overflow-hidden overflow-ellipsis text-[14px] text-black font-bold h-10 "
             variant="caption"
           >
             {formatedName}
-          </Text>
+          </h3>
           <div class="flex items-center  flex-col items-start">
-            <Text class="text-red-700 text-default">
+            <p class="text-red-700 font-bold text-default text-[16px]">
               {installmentsFormated}
-            </Text>
+            </p>
             <Text
               class="line-through "
               variant="list-price"
               tone="subdued"
             >
-              {formatPrice(listPrice, offers!.priceCurrency!)}
+              {/* {formatPrice(listPrice, offers!.priceCurrency!)} */}
             </Text>
-            <Text variant="caption" tone="price">
+            <p class=" font-bold text-default text-[16px] text-black mb-5">
               {formatPrice(price, offers!.priceCurrency!)}
-            </Text>
+            </p>
           </div>
+          <Button
+            class="bg-red-500 w-full text-white rounded-[6px]"
+            href={product.url}
+          >
+            ADICIONAR AO CARRINHO
+          </Button>
+          {seller && (
+            <div class="card-hover group-hover:card-hover-2  flex-col gap-2 w-full bg-white hidden">
+              <Sizes {...product} />
+              <Button as="a" href={product.url}>Visualizar Produto</Button>
+            </div>
+          )}
         </div>
       </a>
     </div>
