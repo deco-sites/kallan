@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-window-prefix
 import Container from "../ui/Container.tsx";
 import type {
   HTML,

@@ -17,6 +17,8 @@ import HeaderButton from "./Buttons.tsx";
 import Button from "../ui/Button.tsx";
 import Icon from "../ui/Icon.tsx";
 import IconUser from "./IconUser.tsx";
+import Menu from "./Menu.tsx";
+import type { INavItem } from "./NavItem.tsx";
 
 export interface NavItem {
   label: string;
@@ -43,12 +45,14 @@ export interface Props {
   }[];
 
   logo: LiveImage;
+  // menuItems: INavItem[];
 }
 
 function Header(
   {
     topBarItems,
     logo,
+    // menuItems,
   }: Props,
 ) {
   return (
@@ -75,6 +79,7 @@ function Header(
           </div>
         </Container>
         <Searchbar className="lg:hidden px-2.5! my-2.5" />
+        {/* <Menu items={menuItems} /> */}
       </div>
       <Modals
         menu={{ items: [] }}

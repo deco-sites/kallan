@@ -4,7 +4,6 @@ import SliderControllerJS from "$store/islands/SliderJS.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import { generateUniqueId } from "$store/sdk/generateId.ts";
 
-
 export interface BrandItemProps {
   /** @description  otimized image */
   image?: LiveImage;

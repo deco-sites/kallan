@@ -14,7 +14,7 @@ function Item({ name, item }: { name?: string; item?: string }) {
   return (
     <li class="whitespace-nowrap overflow-hidden overflow-ellipsis">
       <a href={item} class="hover:underline">
-        <Text variant="caption">
+        <Text variant="caption" class="size-[14px] bold">
           {name}
         </Text>
       </a>

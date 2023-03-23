@@ -10,7 +10,6 @@ const displayMenu = signal(false);
 
 const displaySearchbar = signal(false);
 
-
 const state = {
   displayCart,
   displayMenu,

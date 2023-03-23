@@ -3,10 +3,10 @@ import Input from "./Input.tsx";
 
 function Newsletter() {
   return (
-    <div class="w-full bg-red-800 lg:h-[70px] lg:p-0  py-2.5">
-      <Container class="flex items-center justify-between w-full h-full lg:flex-row flex-col">
+    <div class="w-full bg-red-800 p-[30px]">
+      <Container class="flex items-center justify-between w-full h-full flex-col ">
         <div class="flex flex gap-2  h-full  lgMax:mb-4 lgMax:text-center">
-          <h2 class="font-bold text-white flex items-center">
+          <h2 class="font-bold text-white flex items-center uppercase font-roboto text-[22px] mb-[14px]">
             CADASTRE-SE E GANHE 10% DE DESCONTO NA SUA PRIMEIRA COMPRA
           </h2>
         </div>

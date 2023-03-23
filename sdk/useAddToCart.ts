@@ -6,9 +6,10 @@ import { useUI } from "$store/sdk/useUI.ts";
 interface Options {
   skuId: string;
   sellerId?: string;
+  quantity?: number;
 }
 
-export const useAddToCart = ({ skuId, sellerId }: Options) => {
+export const useAddToCart = ({ skuId, sellerId, quantity = 1 }: Options) => {
   const isAddingToCart = useSignal(false);
   const { displayCart } = useUI();
   const { addItems, loading } = useCart();
@@ -24,7 +25,7 @@ export const useAddToCart = ({ skuId, sellerId }: Options) => {
     try {
       isAddingToCart.value = true;
       await addItems({
-        orderItems: [{ id: skuId, seller: sellerId, quantity: 1 }],
+        orderItems: [{ id: skuId, seller: sellerId, quantity }],
       });
 
       displayCart.value = true;

@@ -54,6 +54,7 @@ function ListImages(
   };
 
   useEffect(() => {
+    // deno-lint-ignore no-window-prefix
     window.addEventListener("resize", handleResize);
   }, []);
 
