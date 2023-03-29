@@ -5,6 +5,7 @@
  * function.
  */
 import type { Options } from "$fresh/plugins/twind.ts";
+import { css } from "twind/css";
 
 const gridCols = ([arg]: string[]) => {
   const template = Number.isInteger(Number(arg))
@@ -139,7 +140,7 @@ const options: Omit<Options, "selfURL"> = {
       "2xl": "1536px",
     },
   },
-  preflight: (preflight) => ({
+  preflight: (preflight: any) => ({
     ...preflight,
 
     html: {
@@ -173,6 +174,19 @@ const options: Omit<Options, "selfURL"> = {
         background: "rgba(0, 0, 0, 0.5)",
       },
     },
+    "peer/": { "teste": "teste" },
+    "peer/description": (parts, _context, id) => (css`
+        &:checked {
+          background: blue;
+        }
+        &:checked ~ .hidden {
+          display: block !important;
+        }
+        `),
+    "peer-checked/description": { "color": "red" },
+    "peer/specification": (parts, _context, id) => (css`
+        scroll-snap-type: ${parts.join()} ${id};
+        `),
     "scroll-snap-center": {
       "scroll-snap-align": "center",
     },
@@ -185,11 +199,11 @@ const options: Omit<Options, "selfURL"> = {
     "snap-mandatory": {
       "--tw-scroll-snap-strictness": "mandatory",
     },
-    "fill": (parts) => ({ "fill": parts.join("-") }),
+    "fill": (parts: any) => ({ "fill": parts.join("-") }),
     "max-h-min": {
       "max-height": "min-content",
     },
-    "snap": ([mod]) => ({ "scroll-snap-align": mod }),
+    "snap": ([mod]: any) => ({ "scroll-snap-align": mod }),
     "grid-cols": gridCols,
     "grid-rows": gridRows,
     "scroll-smooth": {

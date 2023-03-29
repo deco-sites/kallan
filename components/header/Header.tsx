@@ -18,7 +18,7 @@ import Button from "../ui/Button.tsx";
 import Icon from "../ui/Icon.tsx";
 import IconUser from "./IconUser.tsx";
 import Menu from "./Menu.tsx";
-import type { INavItem } from "./NavItem.tsx";
+import NavItem from "./NavItem.tsx";
 
 export interface NavItem {
   label: string;
@@ -45,18 +45,18 @@ export interface Props {
   }[];
 
   logo: LiveImage;
-  // menuItems: INavItem[];
+  navItems?: NavItem[];
 }
 
 function Header(
   {
     topBarItems,
     logo,
-    // menuItems,
+    navItems = [],
   }: Props,
 ) {
   return (
-    <header class={`h-[160px] transition lgMax:h-[177px]`}>
+    <header class={`h-[${headerHeight}] transition lgMax:h-[177px]`}>
       <div class=" fixed w-full left-0 top-0 z-50 bg-white">
         <TopBar items={topBarItems} />
         <Container class="flex justify-between items-center py-[15px] lgMax:pl-2.5 lgMax:pr-3">
@@ -78,11 +78,13 @@ function Header(
             <HeaderButton variant="cart" />
           </div>
         </Container>
+        <div class="flex-auto flex justify-center">
+          {navItems.map((item) => <NavItem item={item} />)}
+        </div>
         <Searchbar className="lg:hidden px-2.5! my-2.5" />
-        {/* <Menu items={menuItems} /> */}
       </div>
       <Modals
-        menu={{ items: [] }}
+        menu={{ items: navItems }}
       />
     </header>
   );

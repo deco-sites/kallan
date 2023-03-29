@@ -175,11 +175,41 @@ function Details({ page }: { page: ProductDetailsPage }) {
       <div class="mt-4 sm:mt-6 max-w-[980px] mx-auto">
         <Text variant="caption">
           {description && (
-            <div>
-              <h3 class="cursor-pointer text-red-500 uppercase bold">
-                Descrição
-              </h3>
-              <div class="ml-2 mt-2">{description}</div>
+            <div id="container">
+              <div class="tabs">
+                <input
+                  type="radio"
+                  name="tabs"
+                  class="peer/description"
+                  id="description"
+                  checked
+                />
+                <label class="" for="description">
+                  <h3 class="cursor-pointer text-red-500 uppercase bold">
+                    Descrição
+                  </h3>
+                </label>
+
+                <input
+                  type="radio"
+                  class="peer/specifications"
+                  name="tabs"
+                  id="specifications"
+                />
+                <label class="" for="specifications">
+                  <div class="tab-box">Option 2</div>
+                </label>
+
+                <div class="peer-checked/description hidden">
+                  <div class="ml-2 mt-2">{description}</div>
+                </div>
+
+                {
+                  /* <div class="peer/item2-checked:visible invisible">
+                  <div class="ml-2 mt-2">{description}</div>
+                </div> */
+                }
+              </div>
             </div>
           )}
         </Text>

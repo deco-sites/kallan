@@ -783,6 +783,89 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Logo",
           },
+          "navItems": {
+            "type": "array",
+            "items": {
+              "title": "NavItem",
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "title": "Label",
+                },
+                "href": {
+                  "type": "string",
+                  "title": "Href",
+                },
+                "children": {
+                  "title": "Children",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "title": "Label",
+                      },
+                      "href": {
+                        "type": "string",
+                        "title": "Href",
+                      },
+                      "children": {
+                        "title": "Children",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "type": "string",
+                              "title": "Label",
+                            },
+                            "href": {
+                              "type": "string",
+                              "title": "Href",
+                            },
+                          },
+                          "required": [
+                            "label",
+                            "href",
+                          ],
+                        },
+                      },
+                    },
+                    "required": [
+                      "label",
+                      "href",
+                    ],
+                  },
+                },
+                "image": {
+                  "title": "Image",
+                  "type": "object",
+                  "properties": {
+                    "src": {
+                      "format": "image-uri",
+                      "type": "string",
+                      "title": "Src",
+                    },
+                    "alt": {
+                      "type": [
+                        "string",
+                        "null",
+                      ],
+                      "title": "Alt",
+                    },
+                  },
+                  "required": [],
+                },
+              },
+              "required": [
+                "label",
+                "href",
+              ],
+            },
+            "title": "Nav Items",
+          },
         },
         "required": [
           "logo",
